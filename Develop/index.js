@@ -18,7 +18,10 @@ const inquirerQuestions = questions.map(it => {
         message: it,
     };
 })
-
+async function askQuestions(){
+    inquirer.prompt(inquirerQuestions)
+}
+askQuestions()
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
