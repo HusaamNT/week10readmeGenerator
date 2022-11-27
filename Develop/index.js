@@ -4,12 +4,12 @@ const inquirer = require("inquirer")
 
 // TODO: Create an array of questions for user input
 const questions = [
-    "Name",
-    "Description",
-    "Installation Instructions",
-    "Usage Information",
-    "Contribution Guidlines",
-    "Test Instructions",
+    "name",
+    "description",
+    "installationInstructions",
+    "usageInformation",
+    "contributionGuidlines",
+    "testInstructions",
 ];
 const inquirerQuestions = questions.map(it => {
     return{
