@@ -25,6 +25,22 @@ async function collectAndGenerateFile(){
     const response = await askQuestions()
     console.log(response)
 }
+
+async function generateFile(answers){
+    console.log(answers)
+}
+
+const presetNames = {
+name: 'name',
+description: 'desc',
+installationInstructions: 'install',
+usageInformation: 'use',
+contributionGuidlines: 'cont',
+testInstructions: 'test'
+}
+
+generateFile(presetNames)
+
 collectAndGenerateFile()
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
