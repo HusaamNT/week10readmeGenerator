@@ -14,12 +14,10 @@ const questions = [
 const inquirerQuestions = questions.map(it => {
     return{
         type: "input",
-        name: "name",
-        message: "Input your name:"
-
-    },
-}
-    )
+        name: it,
+        message: it,
+    };
+})
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
