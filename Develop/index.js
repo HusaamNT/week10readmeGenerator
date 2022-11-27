@@ -19,9 +19,13 @@ const inquirerQuestions = questions.map(it => {
     };
 })
 async function askQuestions(){
-    inquirer.prompt(inquirerQuestions)
+   return await inquirer.prompt(inquirerQuestions)
 }
-askQuestions()
+async function collectAndGenerateFile(){
+    const response = await askQuestions()
+    console.log(response)
+}
+collectAndGenerateFile()
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
