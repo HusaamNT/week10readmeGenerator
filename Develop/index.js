@@ -39,14 +39,44 @@ contributionGuidlines: 'cont',
 testInstructions: 'test'
 }
 
-generateFile(presetNames)
+// generateFile(presetNames)
 
 collectAndGenerateFile()
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    const readMe = `
+    # ${data.name}
+
+    ${data.description}
+
+    ## Installation
+    ${data.installationInstructions}
+
+    ## Usage
+    ${data.usageInformation}
+
+    ## Contribution Guidlines
+    ${data.testInstructions}
+    `;
+
+    fs.writeFile(`${fileName}.md`, readMe, (err) => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log('README.md file created!');
+        }
+    })
+}
+
 
 // TODO: Create a function to initialize app
-function init() {}
+async function init() {
+    await generateFile(presetNames)  
+    console.log("hello") 
+    const fileName = answers.name
+    await writeToFile(fileName, answers)
+    console.log("hi")
+}
 
 // Function call to initialize app
 init();
