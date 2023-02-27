@@ -24,6 +24,7 @@ async function askQuestions(){
 async function collectAndGenerateFile(){
     const response = await askQuestions()
     console.log(response)
+    return response
 }
 
 async function generateFile(answers){
@@ -41,7 +42,7 @@ testInstructions: 'test'
 
 // generateFile(presetNames)
 
-collectAndGenerateFile()
+//collectAndGenerateFile()
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     const readMe = `
@@ -71,11 +72,14 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 async function init() {
-    await generateFile(presetNames)  
-    console.log("hello") 
+    try{
+    const answers =  await collectAndGenerateFile()
     const fileName = answers.name
     await writeToFile(fileName, answers)
-    console.log("hi")
+    }
+    catch(err){
+        console.log(err)
+    }
 }
 
 // Function call to initialize app
