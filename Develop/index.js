@@ -45,20 +45,18 @@ testInstructions: 'test'
 //collectAndGenerateFile()
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    const readMe = `
-    # ${data.name}
+    const readMe = `# ${data.name}
 
-    ${data.description}
+${data.description}
 
-    ## Installation
-    ${data.installationInstructions}
+## Installation
+${data.installationInstructions}
 
-    ## Usage
-    ${data.usageInformation}
+## Usage
+${data.usageInformation}
 
-    ## Contribution Guidlines
-    ${data.testInstructions}
-    `;
+## Contribution Guidlines
+${data.testInstructions}`;
 
     fs.writeFile(`${fileName}.md`, readMe, (err) => {
         if (err) {
@@ -76,6 +74,7 @@ async function init() {
     const answers =  await collectAndGenerateFile()
     const fileName = answers.name
     await writeToFile(fileName, answers)
+    console.log("Your README.md file will be created in this root file!")
     }
     catch(err){
         console.log(err)
